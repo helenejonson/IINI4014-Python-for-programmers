@@ -1,19 +1,21 @@
 import math
 
 
-def pi(sides, radii, turns):
-    diameter = radii * 2
-    length = radii
-    for x in range(turns):
-        if x != 0:
-            sides = sides * 2
-        halfLength = length / 2
-        a = math.sqrt(1 - halfLength ** 2)
+def ArchimedesPI(n):
+    s = 1
+    for x in range(30):
+        s2 = s / 2
+        a = math.sqrt(1 - math.pow(s2, 2))
         b = 1 - a
-        p = sides * length
-        length = math.sqrt(b ** 2 + halfLength ** 2)
-        approximation = p / diameter
-        print(approximation)
+        p = n * s
+        s = math.sqrt(pow(b, 2) + pow(s2, 2))
+        pi = p / 2
+        n = n * 2
+    return pi
 
 
-pi(6, 1, 14)
+if __name__ == '__main__':
+    a = ArchimedesPI(6)
+    b = math.pi
+    print(a)
+    print('Difference:', a - b)
