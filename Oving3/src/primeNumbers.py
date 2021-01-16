@@ -1,25 +1,17 @@
-import math
+def primes():
+    myPrimes = []
+    count = 0
+    while len(myPrimes) < 1000:
+        if count > 1:
+            for i in range(2, count):
+                if (count % i) == 0:
+                    break
+            else:
+                myPrimes.append(count)
+        count += 1
+    return myPrimes
 
 
-def primes(n):
-    numbers = list(range(0, n))
-    for x in range(n):
-        numbers[x] = 1
-    numbers[0] = 0
-    numbers[1] = 0
-    p = 2
-    while p * p <= n:
-        if numbers[p] == 1:
-            for i in range(p * p, n, p):
-                numbers[i] = 0
-        p += 1
-    prime = []
-    for x in range(n):
-        if numbers[x] == 1:
-            prime.append(x)
-
-    for x in range(1000):
-        print(prime[x])
-
-
-primes(10000)
+if __name__ == '__main__':
+    prime = primes()
+    print(prime)
