@@ -1,13 +1,12 @@
-f = input("forname: ")
-l = input("lastname: ")
-a = f.split()
-b = l.split()
-tot = ""
-for i in range(len(a)):
-    s = a[i]
-    tot += s[0]
-for i in range(len(b)):
-    s = b[i]
-    tot += s[0]
-print("Initials: " + tot)
-print("Hi! Welcome to Python programming " + f + " " + l + ".")
+def initals(input):
+    init = []
+    inputlist = input.split(' ')
+    for x in inputlist:
+        letter = x[0].upper()
+        init.append(letter)
+    return ''.join(init)
+
+
+if __name__ == '__main__':
+    x = input("Name: ")
+    print("Init:", initals(x))
